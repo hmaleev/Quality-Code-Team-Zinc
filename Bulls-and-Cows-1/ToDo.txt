@@ -1,0 +1,5 @@
+Tasks to do for the team project 
+
+1. Refactoring -
+2. Documentation -
+3. Unit Tests - Hristo Maleev
