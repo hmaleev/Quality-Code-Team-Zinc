@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cows_buls.cs" />
-    <Compile Include="BullsAndCowsTest.cs" />
-    <Compile Include="PlayerInfo.cs" />
+    <Compile Include="BullsAndCowsMain.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

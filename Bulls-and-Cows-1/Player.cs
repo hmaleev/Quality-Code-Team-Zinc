@@ -1,53 +1,64 @@
 ﻿using System;
 
-public class PlayerInfo : IComparable<PlayerInfo>
+public class Player : IComparable<Player>
 {
-    private string nickName;
+    private string nickname;
+    private int score;
 
-    public string NickName
+    public Player(string nickname, int score)
+    {
+        this.Nickname = nickname;
+        this.Score = score;
+    }
+
+    public string Nickname
     {
         get
         {
-
-
-            return nickName;
+            return this.nickname;
         }
-        set
+
+        private set
         {
-            if (nickName == String.Empty)
+            if (this.nickname == string.Empty)
             {
-                throw new ArgumentException("NickName should have at least 1 symbol!");
+                throw new ArgumentException("Nickname should have at least 1 symbol!");
             }
             else
             {
-                nickName = value;
+                this.nickname = value;
             }
         }
     }
 
-    public int Guesses { get; set; }
-
-    public PlayerInfo(string nickName, int guesses)
+    public int Score
     {
-        this.NickName = nickName;
-        this.Guesses = guesses;
+        get
+        {
+            return this.score;
+        }
+
+        private set
+        {
+            this.score = value;
+        }
     }
 
-    public int CompareTo(PlayerInfo other)
+    public int CompareTo(Player otherPlayerScore)
     {
-        if (this.Guesses.CompareTo(other.Guesses) == 0)
+        if (this.Score.CompareTo(otherPlayerScore.Score) == 0)
         {
-            return this.NickName.CompareTo(other.NickName);
+            return this.Nickname.CompareTo(otherPlayerScore.Nickname);
         }
         else
         {
-            return this.Guesses.CompareTo(other.Guesses);
+            return this.Score.CompareTo(otherPlayerScore.Score);
         }
     }
 
     public override string ToString()
     {
-        string result = String.Format("{0,3}    | {1}", Guesses, NickName);
+        string result = string.Format("{0,3} | {1}", this.Score, this.Nickname);
         return result;
     }
 }
