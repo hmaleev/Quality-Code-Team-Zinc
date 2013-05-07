@@ -20,13 +20,15 @@ public class Player : IComparable<Player>
 
         private set
         {
-            if (this.nickname == string.Empty)
+
+            if (!value.Equals(String.Empty))
             {
-                throw new ArgumentException("Nickname should have at least 1 symbol!");
+                this.nickname = value;
             }
             else
             {
-                this.nickname = value;
+                throw new ArgumentException("Nickname should have at least 1 symbol!");
+              
             }
         }
     }

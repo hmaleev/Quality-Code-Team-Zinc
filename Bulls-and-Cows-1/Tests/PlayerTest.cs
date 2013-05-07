@@ -1,0 +1,32 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Tests
+{
+    [TestClass]
+    public class PlayerTest
+    {
+        [TestMethod]
+        public void TestNickname()
+        {
+            Player player = new Player("pesho", 10);
+            Assert.AreEqual(player.Nickname, "pesho");
+        }
+        [TestMethod]
+
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestEmptyNickName()
+        {
+            Player player = new Player("", 0);
+            Assert.AreEqual(player.Nickname, String.Empty);
+        }
+        [TestMethod]
+        public void TestScore()
+        {
+            Player player = new Player("pesho", 10);
+            Assert.AreEqual(player.Score, 10);
+        }
+
+
+    }
+}
