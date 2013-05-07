@@ -1,66 +1,69 @@
 ﻿using System;
 
-public class Player : IComparable<Player>
+namespace CowsAndBulls
 {
-    private string nickname;
-    private int score;
-
-    public Player(string nickname, int score)
+    public class Player : IComparable<Player>
     {
-        this.Nickname = nickname;
-        this.Score = score;
-    }
+        private string nickname;
+        private int score;
 
-    public string Nickname
-    {
-        get
+        public Player(string nickname, int score)
         {
-            return this.nickname;
+            this.Nickname = nickname;
+            this.Score = score;
         }
 
-        private set
+        public string Nickname
         {
-
-            if (!value.Equals(String.Empty))
+            get
             {
-                this.nickname = value;
+                return this.nickname;
+            }
+
+            private set
+            {
+
+                if (!value.Equals(String.Empty))
+                {
+                    this.nickname = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Nickname should have at least 1 symbol!");
+
+                }
+            }
+        }
+
+        public int Score
+        {
+            get
+            {
+                return this.score;
+            }
+
+            private set
+            {
+                this.score = value;
+            }
+        }
+
+        public int CompareTo(Player otherPlayerScore)
+        {
+            if (this.Score.CompareTo(otherPlayerScore.Score) == 0)
+            {
+                return this.Nickname.CompareTo(otherPlayerScore.Nickname);
             }
             else
             {
-                throw new ArgumentException("Nickname should have at least 1 symbol!");
-              
+                return this.Score.CompareTo(otherPlayerScore.Score);
             }
         }
-    }
 
-    public int Score
-    {
-        get
+        public override string ToString()
         {
-            return this.score;
+            string result = string.Format("{0,3} | {1}", this.Score, this.Nickname);
+            return result;
         }
-
-        private set
-        {
-            this.score = value;
-        }
-    }
-
-    public int CompareTo(Player otherPlayerScore)
-    {
-        if (this.Score.CompareTo(otherPlayerScore.Score) == 0)
-        {
-            return this.Nickname.CompareTo(otherPlayerScore.Nickname);
-        }
-        else
-        {
-            return this.Score.CompareTo(otherPlayerScore.Score);
-        }
-    }
-
-    public override string ToString()
-    {
-        string result = string.Format("{0,3} | {1}", this.Score, this.Nickname);
-        return result;
     }
 }

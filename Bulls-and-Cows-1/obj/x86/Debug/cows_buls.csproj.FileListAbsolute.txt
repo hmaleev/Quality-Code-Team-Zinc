@@ -10,3 +10,6 @@ C:\Users\Xri\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\bin\Debug\
 C:\Users\Xri\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\bin\Debug\BullsAndCows.pdb
 C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\obj\x86\Debug\BullsAndCows.exe
 C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\obj\x86\Debug\BullsAndCows.pdb
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\bin\Debug\BullsAndCows.exe
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\bin\Debug\BullsAndCows.pdb
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\Bulls-and-Cows-1\obj\x86\Debug\cows_buls.csprojResolveAssemblyReference.cache

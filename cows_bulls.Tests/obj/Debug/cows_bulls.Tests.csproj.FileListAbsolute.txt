@@ -1,0 +1,7 @@
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\cows_bulls.Tests.dll
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\cows_bulls.Tests.pdb
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\BullsAndCows.exe
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\BullsAndCows.pdb
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.csprojResolveAssemblyReference.cache
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.dll
+C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.pdb

@@ -1,7 +1,10 @@
-﻿public class BullsAndCowsMain
+﻿namespace CowsAndBulls
 {
-    public static void Main()
+    public class BullsAndCowsMain
     {
-        Game.Play();
+        public static void Main()
+        {
+            Game.Play();
+        }
     }
 }
