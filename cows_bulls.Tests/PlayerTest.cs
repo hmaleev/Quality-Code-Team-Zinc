@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CowsAndBulls;
+using BullsAndCows;
 
 namespace cows_bulls.Tests
 {
