@@ -28,5 +28,7 @@ namespace cows_bulls.Tests
             Player player = new Player("pesho", 10);
             Assert.AreEqual(player.Score, 10);
         }
+
+
     }
 }

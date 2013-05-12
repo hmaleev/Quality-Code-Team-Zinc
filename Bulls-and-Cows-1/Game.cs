@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class Game
+    public static class Game
     {
         private static List<Player> scoreboard = new List<Player>();
         private static int helpCounter;
