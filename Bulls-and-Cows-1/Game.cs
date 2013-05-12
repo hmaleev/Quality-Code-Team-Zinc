@@ -16,7 +16,7 @@
 
         public static void Play()
         {
-            Printer.PrintWelcomeMessage();
+            ConsolePrinter.PrintWelcomeMessage();
             Initialize();
             GenerateSecretNumber();
 
@@ -25,7 +25,7 @@
 
             while (!isGuessed)
             {
-                Printer.PrintEnterGuessMessage();
+                ConsolePrinter.PrintEnterGuessMessage();
                 consoleInput = Console.ReadLine();
 
                 if (int.TryParse(consoleInput, out consoleInputAsInt))
@@ -39,7 +39,7 @@
             }
 
             AddPlayerToScoreboard(guessCounter);
-            Printer.PrintScoreboard(scoreboard);
+            ConsolePrinter.PrintScoreboard(scoreboard);
             Play();
         }
 
@@ -82,7 +82,7 @@
                 if (IsGuessCorrect(playerGuess))
                 {
                     isGuessed = true;
-                    Printer.PrintCongratulationMessage(helpCounter, guessCounter);
+                    ConsolePrinter.PrintCongratulationMessage(helpCounter, guessCounter);
                 }
                 else
                 {
@@ -91,7 +91,7 @@
             }
             else
             {
-                Printer.PrintInvalidNumberMessage();
+                ConsolePrinter.PrintInvalidNumberMessage();
             }
         }
 
@@ -100,7 +100,7 @@
             int bullsCount = 0;
             int cowsCount = 0;
             CountHits(playerGuess, ref bullsCount, ref cowsCount);
-            Printer.PrintCurrentHits(bullsCount, cowsCount);
+            ConsolePrinter.PrintCurrentHits(bullsCount, cowsCount);
         }
 
         private static void CountHits(string playerGuess, ref int bullsCount, ref int cowsCount)
@@ -169,7 +169,7 @@
             switch (command.ToLower())
             {
                 case "top":
-                    Printer.PrintScoreboard(scoreboard);
+                    ConsolePrinter.PrintScoreboard(scoreboard);
                     break;
                 case "help":
                     RevealDigit();
@@ -179,11 +179,11 @@
                     Play();
                     return;
                 case "exit":
-                    Printer.PrintByeMessage();
+                    ConsolePrinter.PrintByeMessage();
                     Environment.Exit(1);
                     break;
                 default:
-                    Printer.PrintInvalidCommandMessage();
+                    ConsolePrinter.PrintInvalidCommandMessage();
                     break;
             }
         }
@@ -205,14 +205,14 @@
                 revealedDigits++;
             }
 
-            Printer.PrintHint(hint);
+            ConsolePrinter.PrintHint(hint);
         }
 
         private static void AddPlayerToScoreboard(int playerScore)
         {
             if (helpCounter > 0)
             {
-                Printer.PrintNotAllowedMessage();
+                ConsolePrinter.PrintNotAllowedMessage();
             }
             else
             {
@@ -236,7 +236,7 @@
             {
                 try
                 {
-                    Printer.PrintEnterNicknameMessage();
+                    ConsolePrinter.PrintEnterNicknameMessage();
                     playerNick = Console.ReadLine();
                 }
                 catch (ArgumentException e)
