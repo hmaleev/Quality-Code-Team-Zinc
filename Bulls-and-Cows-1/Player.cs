@@ -22,6 +22,16 @@
 
             private set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Nickname is missing");
+                }
+
+                if (value == String.Empty)
+                {
+                    throw new ArgumentException("Nickname is blank!");
+                }
+
                 this.nickname = value;
             }
         }
@@ -35,6 +45,11 @@
 
             private set
             {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Score cannot be negative");
+                }
+
                 this.score = value;
             }
         }

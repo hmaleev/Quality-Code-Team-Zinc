@@ -29,6 +29,11 @@ namespace cows_bulls.Tests
             Assert.AreEqual(player.Score, 10);
         }
 
-
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TestNullScore()
+        {
+            Player player = new Player("pesho", -10000);
+        }
     }
 }
