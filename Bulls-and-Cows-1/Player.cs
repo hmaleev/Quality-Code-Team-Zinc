@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace CowsAndBulls
+﻿namespace BullsAndCows
 {
+    using System;
+
     public class Player : IComparable<Player>
     {
         private string nickname;
@@ -22,16 +22,7 @@ namespace CowsAndBulls
 
             private set
             {
-
-                if (!value.Equals(String.Empty))
-                {
-                    this.nickname = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Nickname should have at least 1 symbol!");
-
-                }
+                this.nickname = value;
             }
         }
 
