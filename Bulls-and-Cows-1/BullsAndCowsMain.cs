@@ -1,8 +1,8 @@
-﻿namespace CowsAndBulls
+﻿namespace BullsAndCows
 {
-    public class BullsAndCowsMain
+    class Start
     {
-        public static void Main()
+        static void Main()
         {
             Game.Play();
         }
