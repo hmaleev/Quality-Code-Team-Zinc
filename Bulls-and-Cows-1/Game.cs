@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CowsAndBulls
+﻿namespace BullsAndCows
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public class Game
     {
         private static List<Player> scoreboard = new List<Player>();
@@ -16,7 +16,7 @@ namespace CowsAndBulls
 
         public static void Play()
         {
-            PrintWelcomeMessage();
+            Printer.PrintWelcomeMessage();
             Initialize();
             GenerateSecretNumber();
 
@@ -25,7 +25,7 @@ namespace CowsAndBulls
 
             while (!isGuessed)
             {
-                Console.Write("Enter your guess or command: ");
+                Printer.PrintEnterGuessMessage();
                 consoleInput = Console.ReadLine();
 
                 if (int.TryParse(consoleInput, out consoleInputAsInt))
@@ -39,8 +39,8 @@ namespace CowsAndBulls
             }
 
             AddPlayerToScoreboard(guessCounter);
-            PrintScoreboard();
-            CreateNewGame();
+            Printer.PrintScoreboard(scoreboard);
+            Play();
         }
 
         private static void Initialize()
@@ -78,10 +78,11 @@ namespace CowsAndBulls
             if (playerGuess.Length == 4)
             {
                 guessCounter++;
+
                 if (IsGuessCorrect(playerGuess))
                 {
                     isGuessed = true;
-                    PrintCongratulationMessage();
+                    Printer.PrintCongratulationMessage(helpCounter, guessCounter);
                 }
                 else
                 {
@@ -90,7 +91,7 @@ namespace CowsAndBulls
             }
             else
             {
-                Console.WriteLine("You have entered an invalid number!");
+                Printer.PrintInvalidNumberMessage();
             }
         }
 
@@ -99,7 +100,7 @@ namespace CowsAndBulls
             int bullsCount = 0;
             int cowsCount = 0;
             CountHits(playerGuess, ref bullsCount, ref cowsCount);
-            Console.WriteLine("Wrong number! Bulls: {0}, Cows: {1}!", bullsCount, cowsCount);
+            Printer.PrintCurrentHits(bullsCount, cowsCount);
         }
 
         private static void CountHits(string playerGuess, ref int bullsCount, ref int cowsCount)
@@ -157,23 +158,6 @@ namespace CowsAndBulls
             return cowsCount;
         }
 
-        private static void PrintCongratulationMessage()
-        {
-            StringBuilder congratulationMessage = new StringBuilder();
-
-            if (helpCounter == 0)
-            {
-                congratulationMessage.AppendFormat("Congratulations! You guessed the secret number in {0} attempts.", guessCounter);
-            }
-            else
-            {
-                congratulationMessage.AppendFormat("Congratulations! You guessed the secret number in {0} attempts and {1} cheats.", guessCounter, helpCounter);
-            }
-
-            Console.WriteLine(congratulationMessage.ToString());
-            Console.WriteLine();
-        }
-
         private static bool IsGuessCorrect(string playerGuess)
         {
             bool isCorrect = playerGuess == secretNumberAsString;
@@ -185,21 +169,21 @@ namespace CowsAndBulls
             switch (command.ToLower())
             {
                 case "top":
-                    PrintScoreboard();
+                    Printer.PrintScoreboard(scoreboard);
                     break;
                 case "help":
                     RevealDigit();
                     helpCounter++;
                     break;
                 case "restart":
-                    CreateNewGame();
+                    Play();
                     return;
                 case "exit":
-                    Console.WriteLine("Good bye!");
+                    Printer.PrintByeMessage();
                     Environment.Exit(1);
                     break;
                 default:
-                    Console.WriteLine("Invalid command!");
+                    Printer.PrintInvalidCommandMessage();
                     break;
             }
         }
@@ -221,34 +205,14 @@ namespace CowsAndBulls
                 revealedDigits++;
             }
 
-            PrintHint();
-        }
-
-        private static void PrintHint()
-        {
-            StringBuilder hintMessage = new StringBuilder();
-
-            hintMessage.Append("The number looks like ");
-            foreach (char symbol in hint)
-            {
-                hintMessage.Append(symbol);
-            }
-
-            hintMessage.Append(".");
-            Console.WriteLine(hintMessage.ToString());
-            Console.WriteLine();
-        }
-
-        private static void CreateNewGame()
-        {
-            Play();
+            Printer.PrintHint(hint);
         }
 
         private static void AddPlayerToScoreboard(int playerScore)
         {
             if (helpCounter > 0)
             {
-                Console.WriteLine("You are not allowed to enter the top scoreboard.");
+                Printer.PrintNotAllowedMessage();
             }
             else
             {
@@ -266,16 +230,14 @@ namespace CowsAndBulls
 
         private static void AddPlayer(int playerScore)
         {
-            Console.WriteLine("You can add your nickname to top scores!");
             string playerNick = string.Empty;
+
             while (playerNick == string.Empty)
             {
                 try
                 {
-                    Console.Write("Enter your nickname: ");
+                    Printer.PrintEnterNicknameMessage();
                     playerNick = Console.ReadLine();
-                    Player currentPlayer = new Player(playerNick, playerScore);
-                    scoreboard.Add(currentPlayer);
                 }
                 catch (ArgumentException e)
                 {
@@ -283,62 +245,9 @@ namespace CowsAndBulls
                     continue;
                 }
             }
-        }
 
-        private static void PrintScoreboard()
-        {
-            Console.WriteLine();
-            StringBuilder scoresMessage = new StringBuilder();
-
-            if (scoreboard.Count > 0)
-            {
-                int currentPosition = 1;
-
-                scoresMessage.AppendLine("Scoreboard:");
-
-                scoreboard.Sort();
-                scoresMessage.AppendLine("{Guesses,7} | Name");
-                PrintLine(40);
-
-                foreach (var player in scoreboard)
-                {
-                    scoresMessage.AppendFormat("{0} | {1}", currentPosition, player);
-                    PrintLine(40);
-                    currentPosition++;
-                }
-            }
-            else
-            {
-                scoresMessage.AppendLine("Scoreboard is empty!");
-            }
-
-            Console.WriteLine(scoresMessage.ToString());
-        }
-
-        private static void PrintLine(int dashCount)
-        {
-            for (int i = 0; i < dashCount; i++)
-            {
-                Console.Write("-");
-            }
-
-            Console.WriteLine();
-        }
-
-        private static void PrintWelcomeMessage()
-        {
-            StringBuilder welcomeMessage = new StringBuilder();
-
-            welcomeMessage.AppendLine("Welcome to “Bulls and Cows” game.");
-            welcomeMessage.AppendLine("Please try to guess my secret 4-digit number.");
-            welcomeMessage.AppendLine("Commands you can use:");
-            welcomeMessage.AppendLine("\"top\" will show you the current top 5 scores;" + Environment.NewLine +
-                "\"restart\" will start a new game for you;" + Environment.NewLine +
-                "\"help\" will reveal one random digit in the secret 4-digit number;" + Environment.NewLine +
-                "\"exit\" will get you out of this mess.");
-            welcomeMessage.AppendLine("Have fun!");
-
-            Console.WriteLine(welcomeMessage.ToString());
+            Player currentPlayer = new Player(playerNick, playerScore);
+            scoreboard.Add(currentPlayer);
         }
     }
 }
