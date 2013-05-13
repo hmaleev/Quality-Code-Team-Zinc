@@ -14,6 +14,9 @@
         private static char[] hint;
         private static Random numberGenerator;
 
+        /// <summary>
+        /// Static void method which allows you to play
+        /// </summary>
         public static void Play()
         {
             ConsolePrinter.PrintWelcomeMessage();
@@ -43,6 +46,9 @@
             Play();
         }
 
+        /// <summary>
+        /// Static void method initializing a number
+        /// </summary>
         private static void Initialize()
         {
             numberGenerator = new Random();
@@ -52,6 +58,9 @@
             hint = new char[] { 'X', 'X', 'X', 'X' };
         }
 
+        /// <summary>
+        /// Static void method generating secret number between 0 and 9999
+        /// </summary>
         private static void GenerateSecretNumber()
         {
             long secretNumber = numberGenerator.Next(0, 9999);
@@ -59,6 +68,9 @@
             AddZeroes();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static void AddZeroes()
         {
             int missingDigitsCount = 4 - secretNumberAsString.Length;

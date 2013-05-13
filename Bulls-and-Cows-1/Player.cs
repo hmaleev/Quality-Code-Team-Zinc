@@ -13,6 +13,9 @@
             this.Score = score;
         }
 
+        /// <summary>
+        /// Property for player's nickname
+        /// </summary>
         public string Nickname
         {
             get
@@ -36,6 +39,9 @@
             }
         }
 
+        /// <summary>
+        /// Only get property of the score
+        /// </summary>
         public int Score
         {
             get
@@ -54,6 +60,11 @@
             }
         }
 
+        /// <summary>
+        /// Comparing the scores
+        /// </summary>
+        /// <param name="otherPlayerScore">Score of the opponent</param>
+        /// <returns>Compared score</returns>
         public int CompareTo(Player otherPlayerScore)
         {
             if (this.Score.CompareTo(otherPlayerScore.Score) == 0)
