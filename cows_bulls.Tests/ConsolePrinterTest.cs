@@ -88,6 +88,35 @@ namespace cows_bulls.Tests
             }
         }
 
+        [TestMethod]
+        public void TestCongratsMessageWithZeroCheats()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                ConsolePrinter.PrintCongratulationMessage(0, 4);
+                             int expectedGuessesCount = 4;
+                string expected = string.Format("Congratulations! You guessed the secret number in {0} attempts.{1}{2}",
+                    expectedGuessesCount, Environment.NewLine, Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
 
+        [TestMethod]
+        public void TestCongratsMessageWithTwoCheats()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                //congratulationMessage.AppendFormat("Congratulations! You guessed the secret number in {0} attempts and {1} cheats.", guessCounter, helpCounter);
+
+                Console.SetOut(sw);
+                ConsolePrinter.PrintCongratulationMessage(2, 6);
+                int expectedHelpCounter = 2;
+                int expectedGuessesCount = 6;
+                string expected = string.Format("Congratulations! You guessed the secret number in {0} attempts and {1} cheats.{2}{3}",
+                    expectedGuessesCount, expectedHelpCounter, Environment.NewLine, Environment.NewLine);
+                Assert.AreEqual<string>(expected, sw.ToString());
+            }
+        }
     }
 }
