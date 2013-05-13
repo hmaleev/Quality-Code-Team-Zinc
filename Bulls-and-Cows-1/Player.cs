@@ -68,7 +68,7 @@
 
         public override string ToString()
         {
-            string result = string.Format("{0,3} | {1}", this.Score, this.Nickname);
+            string result = string.Format("{0,7} | {1}", this.Score, this.Nickname);
             return result;
         }
     }
