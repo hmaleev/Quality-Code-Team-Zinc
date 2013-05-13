@@ -4,6 +4,9 @@
     using System.Collections.Generic;
     using System.Text;
 
+    /// <summary>
+    /// Static class game containing it's functions
+    /// </summary>
     public static class Game
     {
         private static List<Player> scoreboard = new List<Player>();
@@ -69,7 +72,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Filling missing digits with zeroes
         /// </summary>
         private static void AddZeroes()
         {
@@ -85,6 +88,10 @@
             secretNumberAsString = filler.ToString();
         }
 
+        /// <summary>
+        /// Static void method revealing current progress
+        /// </summary>
+        /// <param name="playerGuess">Player input - guess number</param>
         private static void ProcessDigitCommand(string playerGuess)
         {
             if (playerGuess.Length == 4)
@@ -107,6 +114,10 @@
             }
         }
 
+        /// <summary>
+        /// Revealing current hits
+        /// </summary>
+        /// <param name="playerGuess">Player input - guess number</param>
         private static void RevealCurrentHits(string playerGuess)
         {
             int bullsCount = 0;
@@ -115,6 +126,12 @@
             ConsolePrinter.PrintCurrentHits(bullsCount, cowsCount);
         }
 
+        /// <summary>
+        /// Counting player hits
+        /// </summary>
+        /// <param name="playerGuess">Player input - guess number</param>
+        /// <param name="bullsCount">Count of bulls in playerGuess number</param>
+        /// <param name="cowsCount">Count of cows in playerGuess number</param>
         private static void CountHits(string playerGuess, ref int bullsCount, ref int cowsCount)
         {
             bool[] isBull = new bool[4];
@@ -124,6 +141,13 @@
             cowsCount = CountCows(playerGuess, cowsCount, isBull, isCow);
         }
 
+        /// <summary>
+        /// Static method counting bulls in playerGuess number
+        /// </summary>
+        /// <param name="playerGuess">Player input - guess number</param>
+        /// <param name="bullsCount">Count of bulls in playerGuess number</param>
+        /// <param name="isBull">Boolean variable checking whether digit is bull or not</param>
+        /// <returns>Count of bulls</returns>
         private static int CountBulls(string playerGuess, int bullsCount, bool[] isBull)
         {
             for (int i = 0; i < playerGuess.Length; i++)
@@ -138,6 +162,14 @@
             return bullsCount;
         }
 
+        /// <summary>
+        /// Static method counting cows in playerGuess number
+        /// </summary>
+        /// <param name="playerGuess">Player input - guess number</param>
+        /// <param name="cowsCount">Count of cows in playerGuess number</param>
+        /// <param name="isBull">Boolean variable checking whether digit is bull or not</param>
+        /// <param name="isCow">Boolean variable checking whether digit is cow or not</param>
+        /// <returns>Count of cows</returns>
         private static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
         {
             for (int i = 0; i < playerGuess.Length; i++)
@@ -164,12 +196,21 @@
             return cowsCount;
         }
 
+        /// <summary>
+        /// Static method checking whether player guess number is correct
+        /// </summary>
+        /// <param name="playerGuess">Player input - guess number</param>
+        /// <returns>Boolean true or false - correct number or not</returns>
         private static bool IsGuessCorrect(string playerGuess)
         {
             bool isCorrect = playerGuess == secretNumberAsString;
             return isCorrect;
         }
 
+        /// <summary>
+        /// Static void method printing messages on the console
+        /// </summary>
+        /// <param name="command">Input command to be checked by the program</param>
         private static void ProcessTextCommand(string command)
         {
             switch (command.ToLower())
@@ -194,6 +235,9 @@
             }
         }
 
+        /// <summary>
+        /// Static void method revealing digits in secret number
+        /// </summary>
         private static void RevealDigit()
         {
             bool isRevealed = false;
@@ -214,6 +258,10 @@
             ConsolePrinter.PrintHint(hint);
         }
 
+        /// <summary>
+        /// Private static method adding player to the scoreboard
+        /// </summary>
+        /// <param name="playerScore">Current player score</param>
         private static void AddPlayerToScoreboard(int playerScore)
         {
             if (helpCounter > 0)
@@ -234,6 +282,10 @@
             }
         }
 
+        /// <summary>
+        /// Static void method adding a player with his nickname and his score
+        /// </summary>
+        /// <param name="playerScore">Current player score</param>
         private static void AddPlayer(int playerScore)
         {
             string playerNick = string.Empty;

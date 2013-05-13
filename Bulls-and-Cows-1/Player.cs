@@ -7,6 +7,11 @@
         private string nickname;
         private int score;
 
+        /// <summary>
+        /// Player constructor
+        /// </summary>
+        /// <param name="nickname">Player nickname</param>
+        /// <param name="score">Player score (integer)</param>
         public Player(string nickname, int score)
         {
             this.Nickname = nickname;
@@ -77,6 +82,10 @@
             }
         }
 
+        /// <summary>
+        /// Overrided method ToString
+        /// </summary>
+        /// <returns>Returns current player score in a string</returns>
         public override string ToString()
         {
             string result = string.Format("{0,7} | {1}", this.Score, this.Nickname);
