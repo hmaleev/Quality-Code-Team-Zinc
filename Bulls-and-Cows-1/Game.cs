@@ -86,7 +86,7 @@
                 }
                 else
                 {
-                    PrintBullsAndCows(playerGuess);
+                    RevealCurrentHits(playerGuess);
                 }
             }
             else
@@ -95,7 +95,7 @@
             }
         }
 
-        private static void PrintBullsAndCows(string playerGuess)
+        private static void RevealCurrentHits(string playerGuess)
         {
             int bullsCount = 0;
             int cowsCount = 0;
