@@ -29,8 +29,8 @@ namespace cows_bulls.Tests
             {
                 Console.SetOut(sw);
                 ConsolePrinter.PrintInvalidNumberMessage();
-                string expected = string.Format("You have entered an invalid number!{0}",
-                                                Environment.NewLine);
+                string expected = string.Format("You have entered an invalid number!{0}{1}",
+                                                Environment.NewLine,Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
@@ -42,8 +42,8 @@ namespace cows_bulls.Tests
             {
                 Console.SetOut(sw);
                 ConsolePrinter.PrintInvalidCommandMessage();
-                string expected = string.Format("You have entered an invalid command!{0}",
-                                                Environment.NewLine);
+                string expected = string.Format("You have entered an invalid command!{0}{1}",
+                                                Environment.NewLine, Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
@@ -82,8 +82,8 @@ namespace cows_bulls.Tests
                 ConsolePrinter.PrintCurrentHits(2, 2);
                 int expectedCowsCount = 2;
                 int expectedBullsCount = 2;
-                string expected = string.Format("Wrong number! Bulls: {0}, Cows: {1}!{2}",
-                    expectedBullsCount, expectedCowsCount, Environment.NewLine);
+                string expected = string.Format("Wrong number! Bulls: {0}, Cows: {1}!{2}{3}",
+                    expectedBullsCount, expectedCowsCount, Environment.NewLine, Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
@@ -96,8 +96,8 @@ namespace cows_bulls.Tests
                 Console.SetOut(sw);
                 ConsolePrinter.PrintCongratulationMessage(0, 4);
                              int expectedGuessesCount = 4;
-                string expected = string.Format("Congratulations! You guessed the secret number in {0} attempts.{1}{2}",
-                    expectedGuessesCount, Environment.NewLine, Environment.NewLine);
+                string expected = string.Format("{0}Congratulations! You guessed the secret number in {1} attempts.{2}{3}",
+                   Environment.NewLine, expectedGuessesCount, Environment.NewLine, Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }
@@ -113,8 +113,8 @@ namespace cows_bulls.Tests
                 ConsolePrinter.PrintCongratulationMessage(2, 6);
                 int expectedHelpCounter = 2;
                 int expectedGuessesCount = 6;
-                string expected = string.Format("Congratulations! You guessed the secret number in {0} attempts and {1} cheats.{2}{3}",
-                    expectedGuessesCount, expectedHelpCounter, Environment.NewLine, Environment.NewLine);
+                string expected = string.Format("{0}Congratulations! You guessed the secret number in {1} attempts and {2} cheats.{3}{4}",
+                  Environment.NewLine, expectedGuessesCount, expectedHelpCounter, Environment.NewLine,Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
         }

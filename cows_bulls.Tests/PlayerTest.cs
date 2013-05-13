@@ -73,7 +73,7 @@ namespace cows_bulls.Tests
         public void TestToString()
         {
             Player player = new Player("player", 10);
-            string expected = " 10 | player";
+            string expected = "     10 | player";
             string result = player.ToString();
             Assert.AreEqual(expected, result);
         }
