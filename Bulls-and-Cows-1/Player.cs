@@ -27,7 +27,7 @@
                     throw new ArgumentNullException("Nickname is missing");
                 }
 
-                if (value == String.Empty)
+                if (value == string.Empty)
                 {
                     throw new ArgumentException("Nickname is blank!");
                 }
