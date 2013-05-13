@@ -112,22 +112,6 @@
             cowsCount = CountCows(playerGuess, cowsCount, isBull, isCow);
         }
 
-        private static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
-        {
-            for (int i = 0; i < playerGuess.Length; i++)
-            {
-                int playerGuessAsInt = int.Parse(playerGuess[i].ToString());
-
-                if (!isBull[i] && !isCow[playerGuessAsInt])
-                {
-                    isCow[playerGuessAsInt] = true;
-                    cowsCount = CountCowsForCurrentDigit(playerGuess, cowsCount, isBull, i);
-                }
-            }
-
-            return cowsCount;
-        }
-
         private static int CountBulls(string playerGuess, int bullsCount, bool[] isBull)
         {
             for (int i = 0; i < playerGuess.Length; i++)
@@ -142,15 +126,25 @@
             return bullsCount;
         }
 
-        private static int CountCowsForCurrentDigit(string playerGuess, int cowsCount, bool[] isBull, int position)
+        private static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
         {
             for (int i = 0; i < playerGuess.Length; i++)
             {
-                if (playerGuess[position] == secretNumberAsString[i])
+                int playerGuessAsInt = int.Parse(playerGuess[i].ToString());
+
+                if (!isBull[i] && !isCow[playerGuessAsInt])
                 {
-                    if (!isBull[i])
+                    isCow[playerGuessAsInt] = true;
+
+                    for (int j = 0; j < playerGuess.Length; j++)
                     {
-                        cowsCount++;
+                        if (playerGuess[i] == secretNumberAsString[j])
+                        {
+                            if (!isBull[j])
+                            {
+                                cowsCount++;
+                            }
+                        }
                     }
                 }
             }
