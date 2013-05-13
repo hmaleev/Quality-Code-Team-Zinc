@@ -1,2 +1,0 @@
-C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\BullsAndCows.Tests\bin\Debug\BullsAndCows.Tests.exe.config
-C:\Users\BoYo\Documents\GitHub\Quality-Code-Team-Zinc\BullsAndCows.Tests\obj\Debug\BullsAndCows.Tests.csprojResolveAssemblyReference.cache
