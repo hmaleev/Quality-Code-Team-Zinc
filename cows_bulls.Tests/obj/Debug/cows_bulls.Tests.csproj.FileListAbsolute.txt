@@ -12,3 +12,10 @@ C:\Users\gogo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug
 C:\Users\gogo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.csprojResolveAssemblyReference.cache
 C:\Users\gogo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.dll
 C:\Users\gogo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.pdb
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\cows_bulls.Tests.dll
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\cows_bulls.Tests.pdb
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\BullsAndCows.exe
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\bin\Debug\BullsAndCows.pdb
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.csprojResolveAssemblyReference.cache
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.dll
+E:\Hristo\Documents\GitHub\Quality-Code-Team-Zinc\cows_bulls.Tests\obj\Debug\cows_bulls.Tests.pdb
