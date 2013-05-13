@@ -30,16 +30,19 @@
         public static void PrintInvalidNumberMessage()
         {
             Console.WriteLine("You have entered an invalid number!");
+            Console.WriteLine();
         }
 
         public static void PrintInvalidCommandMessage()
         {
             Console.WriteLine("You have entered an invalid command!");
+            Console.WriteLine();
         }
 
         public static void PrintCurrentHits(int bullsCount, int cowsCount)
         {
             Console.WriteLine("Wrong number! Bulls: {0}, Cows: {1}!", bullsCount, cowsCount);
+            Console.WriteLine();
         }
 
         public static void PrintHint(char[] hint)
@@ -70,6 +73,7 @@
                 congratulationMessage.AppendFormat("Congratulations! You guessed the secret number in {0} attempts and {1} cheats.", guessCounter, helpCounter);
             }
 
+            Console.WriteLine();
             Console.WriteLine(congratulationMessage.ToString());
             Console.WriteLine();
         }
@@ -86,15 +90,15 @@
                 scoresMessage.AppendLine("Scoreboard:");
 
                 scoreboard.Sort();
-                scoresMessage.AppendLine("No | Guesses | Name");
-                PrintLine(40);
+                scoresMessage.AppendLine("Rank | Guesses | Name");
 
                 foreach (var player in scoreboard)
                 {
-                    scoresMessage.AppendFormat("{0} | {1}", currentPosition, player);
-                    PrintLine(40);
+                    scoresMessage.AppendFormat("{0,4} | {1}{2}", currentPosition, player, Environment.NewLine);
                     currentPosition++;
                 }
+
+                PrintLine(40);
             }
             else
             {
@@ -102,6 +106,8 @@
             }
 
             Console.WriteLine(scoresMessage.ToString());
+            PrintLine(40);
+            Console.WriteLine();
         }
 
         public static void PrintEnterNicknameMessage()
