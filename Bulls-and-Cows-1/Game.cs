@@ -15,7 +15,8 @@
         private static string secretNumberAsString;
         private static bool isGuessed;
         private static char[] hint;
-        private static Random numberGenerator;
+        public static Random numberGenerator;
+        public static event EventHandler OnGameOver = null;
 
         /// <summary>
         /// Static void method which allows you to play
@@ -23,7 +24,7 @@
         public static void Play()
         {
             ConsolePrinter.PrintWelcomeMessage();
-            Initialize();
+            //Initialize();
             GenerateSecretNumber();
 
             string consoleInput = string.Empty;
@@ -46,15 +47,22 @@
 
             AddPlayerToScoreboard(guessCounter);
             ConsolePrinter.PrintScoreboard(scoreboard);
-            Play();
+            if (OnGameOver != null)
+            {
+                OnGameOver(null, EventArgs.Empty);
+            }
+            //Play();
         }
 
         /// <summary>
-        /// Static void method initializing a number
+        /// Static constructor for Game, initializing all fields
         /// </summary>
-        private static void Initialize()
+        static Game()
         {
-            numberGenerator = new Random();
+            //numberGenerator = new Random();
+            //pseudo random generator (every time same random numbers, for testing)
+            numberGenerator = new Random(0);
+
             guessCounter = 0;
             helpCounter = 0;
             isGuessed = false;
@@ -76,6 +84,7 @@
         /// </summary>
         private static void AddZeroes()
         {
+            //padleft?
             int missingDigitsCount = 4 - secretNumberAsString.Length;
             StringBuilder filler = new StringBuilder();
 
@@ -170,7 +179,7 @@
         /// <param name="isBull">Boolean variable checking whether digit is bull or not</param>
         /// <param name="isCow">Boolean variable checking whether digit is cow or not</param>
         /// <returns>Count of cows</returns>
-        public static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
+        private static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
         {
             for (int i = 0; i < playerGuess.Length; i++)
             {
@@ -201,7 +210,7 @@
         /// </summary>
         /// <param name="playerGuess">Player input - guess number</param>
         /// <returns>Boolean true or false - correct number or not</returns>
-        public static bool IsGuessCorrect(string playerGuess)
+        private static bool IsGuessCorrect(string playerGuess)
         {
             bool isCorrect = playerGuess == secretNumberAsString;
             return isCorrect;
@@ -211,7 +220,7 @@
         /// Static void method printing messages on the console
         /// </summary>
         /// <param name="command">Input command to be checked by the program</param>
-        public static void ProcessTextCommand(string command)
+        private static void ProcessTextCommand(string command)
         {
             switch (command.ToLower())
             {
