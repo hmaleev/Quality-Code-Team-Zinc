@@ -148,7 +148,7 @@
         /// <param name="bullsCount">Count of bulls in playerGuess number</param>
         /// <param name="isBull">Boolean variable checking whether digit is bull or not</param>
         /// <returns>Count of bulls</returns>
-        private static int CountBulls(string playerGuess, int bullsCount, bool[] isBull)
+        public static int CountBulls(string playerGuess, int bullsCount, bool[] isBull)
         {
             for (int i = 0; i < playerGuess.Length; i++)
             {
@@ -170,7 +170,7 @@
         /// <param name="isBull">Boolean variable checking whether digit is bull or not</param>
         /// <param name="isCow">Boolean variable checking whether digit is cow or not</param>
         /// <returns>Count of cows</returns>
-        private static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
+        public static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
         {
             for (int i = 0; i < playerGuess.Length; i++)
             {
@@ -201,7 +201,7 @@
         /// </summary>
         /// <param name="playerGuess">Player input - guess number</param>
         /// <returns>Boolean true or false - correct number or not</returns>
-        private static bool IsGuessCorrect(string playerGuess)
+        public static bool IsGuessCorrect(string playerGuess)
         {
             bool isCorrect = playerGuess == secretNumberAsString;
             return isCorrect;
@@ -211,7 +211,7 @@
         /// Static void method printing messages on the console
         /// </summary>
         /// <param name="command">Input command to be checked by the program</param>
-        private static void ProcessTextCommand(string command)
+        public static void ProcessTextCommand(string command)
         {
             switch (command.ToLower())
             {
