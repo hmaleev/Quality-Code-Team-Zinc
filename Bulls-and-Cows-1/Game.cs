@@ -23,7 +23,7 @@
         /// </summary>
         public static void Play()
         {
-            ConsolePrinter.PrintWelcomeMessage();
+            Console.WriteLine(ConsolePrinter.PrintWelcomeMessage());
             //Initialize();
             GenerateSecretNumber();
 
@@ -32,7 +32,7 @@
 
             while (!isGuessed)
             {
-                ConsolePrinter.PrintEnterGuessMessage();
+                Console.WriteLine(ConsolePrinter.PrintEnterGuessMessage());
                 consoleInput = Console.ReadLine();
 
                 if (int.TryParse(consoleInput, out consoleInputAsInt))
@@ -46,7 +46,7 @@
             }
 
             AddPlayerToScoreboard(guessCounter);
-            ConsolePrinter.PrintScoreboard(scoreboard);
+            Console.WriteLine(ConsolePrinter.PrintScoreboard(scoreboard));
             if (OnGameOver != null)
             {
                 OnGameOver(null, EventArgs.Empty);
@@ -110,7 +110,7 @@
                 if (IsGuessCorrect(playerGuess))
                 {
                     isGuessed = true;
-                    ConsolePrinter.PrintCongratulationMessage(helpCounter, guessCounter);
+                    Console.WriteLine(ConsolePrinter.PrintCongratulationMessage(helpCounter, guessCounter));
                 }
                 else
                 {
@@ -119,7 +119,7 @@
             }
             else
             {
-                ConsolePrinter.PrintInvalidNumberMessage();
+                Console.WriteLine(ConsolePrinter.PrintInvalidNumberMessage());
             }
         }
 
@@ -132,7 +132,7 @@
             int bullsCount = 0;
             int cowsCount = 0;
             CountHits(playerGuess, ref bullsCount, ref cowsCount);
-            ConsolePrinter.PrintCurrentHits(bullsCount, cowsCount);
+            Console.WriteLine(ConsolePrinter.PrintCurrentHits(bullsCount, cowsCount));
         }
 
         /// <summary>
@@ -235,11 +235,11 @@
                     Play();
                     return;
                 case "exit":
-                    ConsolePrinter.PrintByeMessage();
+                   Console.WriteLine(ConsolePrinter.PrintByeMessage());
                     Environment.Exit(1);
                     break;
                 default:
-                    ConsolePrinter.PrintInvalidCommandMessage();
+                   Console.WriteLine(ConsolePrinter.PrintInvalidCommandMessage());
                     break;
             }
         }
@@ -264,7 +264,7 @@
                 revealedDigits++;
             }
 
-            ConsolePrinter.PrintHint(hint);
+            Console.WriteLine(ConsolePrinter.PrintHint(hint));
         }
 
         /// <summary>
@@ -275,7 +275,7 @@
         {
             if (helpCounter > 0)
             {
-                ConsolePrinter.PrintNotAllowedMessage();
+                Console.WriteLine( ConsolePrinter.PrintNotAllowedMessage());
             }
             else
             {
@@ -303,7 +303,7 @@
             {
                 try
                 {
-                    ConsolePrinter.PrintEnterNicknameMessage();
+                    Console.WriteLine( ConsolePrinter.PrintEnterNicknameMessage());
                     playerNick = Console.ReadLine();
                 }
                 catch (ArgumentException e)
