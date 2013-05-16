@@ -15,6 +15,7 @@
 
             Game.OnGameOver += (obj, x) =>
             {
+                Game.Reset();
                 Game.Play();
             };
 

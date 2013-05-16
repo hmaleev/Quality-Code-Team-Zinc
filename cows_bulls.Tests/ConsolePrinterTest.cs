@@ -118,5 +118,6 @@ namespace cows_bulls.Tests
                 Assert.AreEqual<string>(expected, msg);
             }
         }
+
     }
 }

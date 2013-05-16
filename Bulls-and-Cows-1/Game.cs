@@ -54,10 +54,7 @@
             //Play();
         }
 
-        /// <summary>
-        /// Static constructor for Game, initializing all fields
-        /// </summary>
-        static Game()
+        public static void Reset()
         {
             //numberGenerator = new Random();
             //pseudo random generator (every time same random numbers, for testing)
@@ -67,6 +64,14 @@
             helpCounter = 0;
             isGuessed = false;
             hint = new char[] { 'X', 'X', 'X', 'X' };
+        }
+
+        /// <summary>
+        /// Static constructor for Game, initializing all fields
+        /// </summary>
+        static Game()
+        {
+            Reset();
         }
 
         /// <summary>
