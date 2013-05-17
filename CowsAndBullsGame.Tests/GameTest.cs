@@ -30,6 +30,33 @@ namespace cows_bulls.Tests
         }
 
         [TestMethod]
+        public void GameTestCurrentHits()
+        {
+            PrivateType pr = new PrivateType(typeof(Game));
+            pr.SetStaticFieldOrProperty("secretNumberAsString", "1234");
+            StringWriter sw = new StringWriter();
+            Console.SetOut(sw);
+            Game.RevealCurrentHits("1234");
+            var result = sw.ToString();
+            var expected = String.Format("Wrong number! Bulls: 4, Cows: 0!{0}{0}",
+                Environment.NewLine);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestCountHits()
+        {
+            bool[] isBull = new bool[4];
+            bool[] isCow = new bool[10];
+            PrivateType pr = new PrivateType(typeof(Game));
+            pr.SetStaticFieldOrProperty("secretNumberAsString", "1234");
+            int bulls = Game.CountBulls("1234", 0, isBull);
+            int cows = Game.CountCows("1234", 0, isBull, isCow);
+            Assert.AreEqual(4, bulls);
+            Assert.AreEqual(0, cows);
+        }
+
+        [TestMethod]
         public void TestCountBulls()
         {
             bool[] isBull = new bool[4];

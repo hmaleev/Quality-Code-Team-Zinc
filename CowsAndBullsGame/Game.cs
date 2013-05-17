@@ -89,17 +89,18 @@
         /// </summary>
         private static void AddZeroes()
         {
-            //padleft?
-            int missingDigitsCount = 4 - secretNumberAsString.Length;
-            StringBuilder filler = new StringBuilder();
+            secretNumberAsString.PadLeft(4, '0');
+            ////padleft?
+            //int missingDigitsCount = 4 - secretNumberAsString.Length;
+            //StringBuilder filler = new StringBuilder();
 
-            for (int i = 0; i < missingDigitsCount; i++)
-            {
-                filler.Append("0");
-            }
+            //for (int i = 0; i < missingDigitsCount; i++)
+            //{
+            //    filler.Append("0");
+            //}
 
-            filler.Append(secretNumberAsString);
-            secretNumberAsString = filler.ToString();
+            //filler.Append(secretNumberAsString);
+            //secretNumberAsString = filler.ToString();
         }
 
         /// <summary>
@@ -132,7 +133,7 @@
         /// Revealing current hits
         /// </summary>
         /// <param name="playerGuess">Player input - guess number</param>
-        private static void RevealCurrentHits(string playerGuess)
+        public static void RevealCurrentHits(string playerGuess)
         {
             int bullsCount = 0;
             int cowsCount = 0;
@@ -240,11 +241,11 @@
                     Play();
                     return;
                 case "exit":
-                   ConsolePrinter.PrintByeMessage();
+                    ConsolePrinter.PrintByeMessage();
                     Environment.Exit(1);
                     break;
                 default:
-                   ConsolePrinter.PrintInvalidCommandMessage();
+                    ConsolePrinter.PrintInvalidCommandMessage();
                     break;
             }
         }
@@ -306,22 +307,15 @@
 
             while (playerNick == string.Empty)
             {
-                try
-                {
-                    ConsolePrinter.PrintEnterNicknameMessage();
-                    playerNick = Console.ReadLine();
-                }
-                catch (ArgumentException e)
-                {
-                    Console.WriteLine(e.Message);
-                    continue;
-                }
+
+                ConsolePrinter.PrintEnterNicknameMessage();
+                playerNick = Console.ReadLine() ?? "anonymous";
             }
 
             Player currentPlayer = new Player(playerNick, playerScore);
             scoreboard.Add(currentPlayer);
         }
-        
+
         static void Main() { }
     }
 }
