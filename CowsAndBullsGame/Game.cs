@@ -23,7 +23,7 @@
         /// </summary>
         public static void Play()
         {
-            Console.WriteLine(ConsolePrinter.PrintWelcomeMessage());
+            ConsolePrinter.PrintWelcomeMessage();
             //Initialize();
             GenerateSecretNumber();
 
@@ -32,7 +32,7 @@
 
             while (!isGuessed)
             {
-                Console.WriteLine(ConsolePrinter.PrintEnterGuessMessage());
+                ConsolePrinter.PrintEnterGuessMessage();
                 consoleInput = Console.ReadLine();
 
                 if (int.TryParse(consoleInput, out consoleInputAsInt))
@@ -46,7 +46,7 @@
             }
 
             AddPlayerToScoreboard(guessCounter);
-            Console.WriteLine(ConsolePrinter.PrintScoreboard(scoreboard));
+            ConsolePrinter.PrintScoreboard(scoreboard);
             if (OnGameOver != null)
             {
                 OnGameOver(null, EventArgs.Empty);
@@ -115,7 +115,7 @@
                 if (IsGuessCorrect(playerGuess))
                 {
                     isGuessed = true;
-                    Console.WriteLine(ConsolePrinter.PrintCongratulationMessage(helpCounter, guessCounter));
+                    ConsolePrinter.PrintCongratulationMessage(helpCounter, guessCounter);
                 }
                 else
                 {
@@ -124,7 +124,7 @@
             }
             else
             {
-                Console.WriteLine(ConsolePrinter.PrintInvalidNumberMessage());
+                ConsolePrinter.PrintInvalidNumberMessage();
             }
         }
 
@@ -137,7 +137,7 @@
             int bullsCount = 0;
             int cowsCount = 0;
             CountHits(playerGuess, ref bullsCount, ref cowsCount);
-            Console.WriteLine(ConsolePrinter.PrintCurrentHits(bullsCount, cowsCount));
+            ConsolePrinter.PrintCurrentHits(bullsCount, cowsCount);
         }
 
         /// <summary>
@@ -146,7 +146,7 @@
         /// <param name="playerGuess">Player input - guess number</param>
         /// <param name="bullsCount">Count of bulls in playerGuess number</param>
         /// <param name="cowsCount">Count of cows in playerGuess number</param>
-        private static void CountHits(string playerGuess, ref int bullsCount, ref int cowsCount)
+        public static void CountHits(string playerGuess, ref int bullsCount, ref int cowsCount)
         {
             bool[] isBull = new bool[4];
             bool[] isCow = new bool[10];
@@ -184,7 +184,7 @@
         /// <param name="isBull">Boolean variable checking whether digit is bull or not</param>
         /// <param name="isCow">Boolean variable checking whether digit is cow or not</param>
         /// <returns>Count of cows</returns>
-        private static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
+        public static int CountCows(string playerGuess, int cowsCount, bool[] isBull, bool[] isCow)
         {
             for (int i = 0; i < playerGuess.Length; i++)
             {
@@ -225,7 +225,7 @@
         /// Static void method printing messages on the console
         /// </summary>
         /// <param name="command">Input command to be checked by the program</param>
-        private static void ProcessTextCommand(string command)
+        public static void ProcessTextCommand(string command)
         {
             switch (command.ToLower())
             {
@@ -240,11 +240,11 @@
                     Play();
                     return;
                 case "exit":
-                   Console.WriteLine(ConsolePrinter.PrintByeMessage());
+                   ConsolePrinter.PrintByeMessage();
                     Environment.Exit(1);
                     break;
                 default:
-                   Console.WriteLine(ConsolePrinter.PrintInvalidCommandMessage());
+                   ConsolePrinter.PrintInvalidCommandMessage();
                     break;
             }
         }
@@ -269,7 +269,7 @@
                 revealedDigits++;
             }
 
-            Console.WriteLine(ConsolePrinter.PrintHint(hint));
+            ConsolePrinter.PrintHint(hint);
         }
 
         /// <summary>
@@ -280,7 +280,7 @@
         {
             if (helpCounter > 0)
             {
-                Console.WriteLine( ConsolePrinter.PrintNotAllowedMessage());
+                ConsolePrinter.PrintNotAllowedMessage();
             }
             else
             {
@@ -308,7 +308,7 @@
             {
                 try
                 {
-                    Console.WriteLine( ConsolePrinter.PrintEnterNicknameMessage());
+                    ConsolePrinter.PrintEnterNicknameMessage();
                     playerNick = Console.ReadLine();
                 }
                 catch (ArgumentException e)
@@ -321,5 +321,7 @@
             Player currentPlayer = new Player(playerNick, playerScore);
             scoreboard.Add(currentPlayer);
         }
+        
+        static void Main() { }
     }
 }

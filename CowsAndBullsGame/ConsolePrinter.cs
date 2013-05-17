@@ -12,7 +12,7 @@
         /// <summary>
         /// Static void method writing on the console Intro Message
         /// </summary>
-        public static string PrintWelcomeMessage()
+        public static void PrintWelcomeMessage()
         {
             StringBuilder welcomeMessage = new StringBuilder();
 
@@ -25,39 +25,39 @@
                 "\"exit\" will get you out of this mess.");
             welcomeMessage.AppendLine("Have fun!");
 
-            return welcomeMessage.ToString();
+            Console.WriteLine(welcomeMessage.ToString());
         }
 
         /// <summary>
         /// Static void method printing on the console what to do
         /// </summary>
-        public static string PrintEnterGuessMessage()
+        public static void PrintEnterGuessMessage()
         {
             StringBuilder guessMessage = new StringBuilder();
             guessMessage.Append("Enter your guess or command: ");
-            return guessMessage.ToString();
+            Console.WriteLine(guessMessage.ToString());
         }
 
         /// <summary>
         /// Prints on the console if user input is incorrect
         /// </summary>
-        public static string PrintInvalidNumberMessage()
+        public static void PrintInvalidNumberMessage()
         {   
             StringBuilder invalidNumberMessage = new StringBuilder();
             invalidNumberMessage.AppendLine("You have entered an invalid number!");
             invalidNumberMessage.AppendLine();
-            return invalidNumberMessage.ToString();
+            Console.WriteLine(invalidNumberMessage.ToString());
         }
 
         /// <summary>
         /// Prints on the console if user input is incorrect
         /// </summary>
-        public static string PrintInvalidCommandMessage()
+        public static void PrintInvalidCommandMessage()
         {
             StringBuilder invalidCommandMessage = new StringBuilder();
             invalidCommandMessage.AppendLine("You have entered an invalid command!");
             invalidCommandMessage.AppendLine();
-            return invalidCommandMessage.ToString();
+            Console.WriteLine(invalidCommandMessage.ToString());
         }
 
         /// <summary>
@@ -65,19 +65,19 @@
         /// </summary>
         /// <param name="bullsCount">Number of bulls</param>
         /// <param name="cowsCount">Number of cows</param>
-        public static string PrintCurrentHits(int bullsCount, int cowsCount)
+        public static void PrintCurrentHits(int bullsCount, int cowsCount)
         {
             StringBuilder currentHits = new StringBuilder();
             currentHits.AppendFormat("Wrong number! Bulls: {0}, Cows: {1}!", bullsCount, cowsCount);
             currentHits.AppendLine();
-            return currentHits.ToString();
+            Console.WriteLine(currentHits.ToString());
         }
 
         /// <summary>
         /// Printing on the console hint message
         /// </summary>
         /// <param name="hint">Char array of hint</param>
-        public static string PrintHint(char[] hint)
+        public static void PrintHint(char[] hint)
         {
             StringBuilder hintMessage = new StringBuilder();
          //   StringBuilder printHint = new StringBuilder();
@@ -90,7 +90,7 @@
             hintMessage.Append(".");
           //  Console.WriteLine(hintMessage.ToString());
           //  Console.WriteLine();
-            return hintMessage.ToString();
+            Console.WriteLine(hintMessage.ToString());
         }
 
         /// <summary>
@@ -98,7 +98,7 @@
         /// </summary>
         /// <param name="helpCounter">Count of cheats used</param>
         /// <param name="guessCounter">Count of attempts</param>
-        public static string PrintCongratulationMessage(int helpCounter, int guessCounter)
+        public static void PrintCongratulationMessage(int helpCounter, int guessCounter)
         {
             StringBuilder congratulationMessage = new StringBuilder();
 
@@ -113,15 +113,14 @@
             }
 
             congratulationMessage.AppendLine();
-            return congratulationMessage.ToString();
-          
+            Console.WriteLine(congratulationMessage.ToString());
         }
 
         /// <summary>
         /// Static void method printing scoreboard
         /// </summary>
         /// <param name="scoreboard">List of players</param>
-        public static string PrintScoreboard(List<Player> scoreboard)
+        public static void PrintScoreboard(List<Player> scoreboard)
         {
           
             StringBuilder scoresMessage = new StringBuilder();
@@ -142,53 +141,53 @@
                     currentPosition++;
                 }
 
-                Console.WriteLine(PrintLine(40));
+                PrintLine(40);
             }
             else
             {
                 scoresMessage.AppendLine("Scoreboard is empty!");
             }
             scoresMessage.AppendLine();
-            Console.WriteLine(PrintLine(40));
-            return scoresMessage.ToString();
+            PrintLine(40);
+            Console.WriteLine(scoresMessage.ToString());
         }
 
         /// <summary>
         /// Static void method printing on the console message to enter user nickname
         /// </summary>
-        public static string PrintEnterNicknameMessage()
+        public static void PrintEnterNicknameMessage()
         {
             StringBuilder enterNicknameMessage = new StringBuilder();
             enterNicknameMessage.AppendLine("You can add your nickname to top scores!");
             enterNicknameMessage.Append("Enter your nickname: ");
-            return enterNicknameMessage.ToString();
+            Console.WriteLine(enterNicknameMessage.ToString());
         }
 
         /// <summary>
         /// Printing information message on the console
         /// </summary>
-        public static string PrintNotAllowedMessage()
+        public static void PrintNotAllowedMessage()
         {
             StringBuilder notAllowedMessage = new StringBuilder();
             notAllowedMessage.AppendLine("You are not allowed to enter the top scoreboard.");
-            return notAllowedMessage.ToString();
+            Console.WriteLine(notAllowedMessage.ToString());
         }
 
         /// <summary>
         /// Printing on the console bye message
         /// </summary>
-        public static string PrintByeMessage()
+        public static void PrintByeMessage()
         {
             StringBuilder byeMessage = new StringBuilder();
             byeMessage.AppendLine("Good bye!");
-            return byeMessage.ToString();
+            Console.WriteLine(byeMessage.ToString());
         }
 
         /// <summary>
         /// Printing on the console 
         /// </summary>
         /// <param name="dashCount">Count of dashes to be printed on the console</param>
-        private static string PrintLine(int dashCount)
+        private static void PrintLine(int dashCount)
         {
             StringBuilder line = new StringBuilder();
             for (int i = 0; i < dashCount; i++)
@@ -197,7 +196,7 @@
             }
 
             line.AppendLine();
-            return line.ToString();
+            Console.WriteLine(line.ToString());
         }
     }
 }
