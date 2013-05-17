@@ -56,9 +56,9 @@
     <Compile Include="ConsolePrinterTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bulls-and-Cows-1\cows_buls.csproj">
+    <ProjectReference Include="..\CowsAndBullsGame\CowsAndBullsGame.csproj">
       <Project>{469d9cb0-ead5-4181-b120-2d0bc5622bf9}</Project>
-      <Name>cows_buls</Name>
+      <Name>CowsAndBullsGame</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
